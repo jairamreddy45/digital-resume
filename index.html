@@ -1243,7 +1243,7 @@ footer {
         <span class="greeting">Hello, I'm</span>
         <h1>Jairam Reddy</h1>
         <h2><span id="typing">Frontend Developer</span></h2>
-        <p>A passionate and dedicated Frontend Developer with 5+ completed projects. I specialize in creating responsive, user-friendly web interfaces with modern technologies.</p>
+        <p>A passionate and dedicated Frontend Developer with 6+ completed projects. I specialize in creating responsive, user-friendly web interfaces with modern technologies.</p>
         
         <div class="hero-buttons">
             <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Projects</a>
@@ -1277,7 +1277,7 @@ footer {
             
             <div class="about-stats">
                 <div class="stat">
-                    <span class="number">5+</span>
+                    <span class="number">6+</span>
                     <span class="label">Projects Completed</span>
                 </div>
                 <div class="stat">
@@ -1306,6 +1306,8 @@ footer {
                 <div class="skill-tag">SQL</div>
                 <div class="skill-tag">Figma</div>
                 <div class="skill-tag">VS Code</div>
+                <div class="skill-tag">Chart.js</div>
+                <div class="skill-tag">Data Visualization</div>
             </div>
         </div>
     </div>
@@ -1390,6 +1392,16 @@ footer {
                     <div class="skill-progress-bar" data-width="65" style="width: 65%;"></div>
                 </div>
             </div>
+            
+            <div class="skill-bar">
+                <div class="skill-info">
+                    <span class="skill-name">Chart.js</span>
+                    <span class="skill-percent">70%</span>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-progress-bar" data-width="70" style="width: 70%;"></div>
+                </div>
+            </div>
         </div>
         
         <div class="skill-category">
@@ -1433,6 +1445,16 @@ footer {
                     <div class="skill-progress-bar" data-width="70" style="width: 70%;"></div>
                 </div>
             </div>
+            
+            <div class="skill-bar">
+                <div class="skill-info">
+                    <span class="skill-name">Data Visualization</span>
+                    <span class="skill-percent">75%</span>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-progress-bar" data-width="75" style="width: 75%;"></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1442,6 +1464,29 @@ footer {
     <h2 class="section-title">My Projects</h2>
     
     <div class="projects-container">
+        <!-- Financial Dashboard Project -->
+        <div class="project-card">
+            <div class="project-img">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Financial Dashboard">
+            </div>
+            <div class="project-content">
+                <h3>Financial Dashboard</h3>
+                <p>A comprehensive financial dashboard with interactive charts, real-time data visualization, and financial metrics tracking. Features include expense analysis, income tracking, and budget planning with responsive design.</p>
+                <div class="project-tech">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Chart.js</span>
+                    <span>Data Visualization</span>
+                    <span>Responsive Design</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://jairamreddy45.github.io/financial-dashboard/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/jairamreddy45/financial-dashboard" target="_blank" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                </div>
+            </div>
+        </div>
+        
         <!-- Portfolio Project -->
         <div class="project-card">
             <div class="project-img">
@@ -1548,35 +1593,6 @@ footer {
         </div>
     </div>
 </section>
-    <!-- Financial Dashboard -->
-<div class="project-card">
-    <div class="project-img">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Financial Dashboard">
-    </div>
-    <div class="project-content">
-        <h3>Financial Dashboard</h3>
-        <p>
-            A responsive financial dashboard that visualizes income, expenses, and financial insights.
-            Built to demonstrate data presentation, clean UI design, and dashboard-style layouts.
-        </p>
-        <div class="project-tech">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>Dashboard UI</span>
-            <span>Data Visualization</span>
-        </div>
-        <div class="project-links">
-            <a href="https://jairamreddy45.github.io/financial-dashboard/" target="_blank" class="project-link">
-                <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a href="https://github.com/jairamreddy45/financial-dashboard" target="_blank" class="project-link">
-                <i class="fab fa-github"></i> Source Code
-            </a>
-        </div>
-    </div>
-</div>
-
 
 <!-- CONTACT -->
 <section id="contact">
@@ -1682,7 +1698,7 @@ footer {
 
 <script>
 // Typing Effect
-const texts = ["Frontend Developer", "UI/UX Enthusiast", "Problem Solver", "5+ Projects Completed"];
+const texts = ["Frontend Developer", "UI/UX Enthusiast", "Problem Solver", "6+ Projects Completed"];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -1834,7 +1850,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Initialize skill bars on page load
 window.addEventListener('load', animateSkillBars);
 </script>
-
 
 
 </body></html>
