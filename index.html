@@ -1,10 +1,17 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Jairam Reddy | Frontend Developer Portfolio</title>
+<title>Jairam Reddy | Frontend Developer Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Source+Code+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- EMAILJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    // Initialize EmailJS with YOUR public key
+    emailjs.init("KscjHurNx5iPisELO");
+</script>
 
 <style>
 * {
@@ -254,6 +261,24 @@ nav.scrolled {
     color: white;
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(79, 70, 229, 0.2);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success), #0da371);
+    color: white;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, var(--accent-light), var(--success));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
 }
 
 .social-icons {
@@ -907,6 +932,70 @@ section {
     resize: vertical;
 }
 
+/* FORM MESSAGE STYLES */
+.form-message {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-message.success {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    display: block;
+}
+
+.form-message.error {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    display: block;
+}
+
+.form-message i {
+    margin-right: 8px;
+}
+
+/* LOADING SPINNER */
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn-loading .spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
 /* FOOTER */
 footer {
     background: #0A0F1F;
@@ -1220,7 +1309,7 @@ footer {
 <body>
 
 <!-- NAVBAR -->
-<nav id="navbar" class="scrolled">
+<nav id="navbar" class="">
     <a href="#hero" class="logo">&lt;J<span>airam</span><span class="dot">.</span>&gt;</a>
     
     <button class="menu-toggle" id="menuToggle">
@@ -1228,12 +1317,12 @@ footer {
     </button>
     
     <div class="nav-links" id="navLinks">
-        <a href="#hero" class="">Home</a>
+        <a href="#hero" class="active">Home</a>
         <a href="#about" class="">About</a>
-        <a href="#education" class="active">Education</a>
+        <a href="#education" class="">Education</a>
         <a href="#skills" class="">Skills</a>
         <a href="#projects" class="">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" class="">Contact</a>
     </div>
 </nav>
 
@@ -1282,11 +1371,11 @@ footer {
                 </div>
                 <div class="stat">
                     <span class="number">100%</span>
-                    <span class="label">Dedication & Passion</span>
+                    <span class="label">Dedication &amp; Passion</span>
                 </div>
                 <div class="stat">
                     <span class="number">Fresher</span>
-                    <span class="label">Ready to Learn & Grow</span>
+                    <span class="label">Ready to Learn &amp; Grow</span>
                 </div>
             </div>
         </div>
@@ -1299,7 +1388,7 @@ footer {
                 <div class="skill-tag">JavaScript</div>
                 <div class="skill-tag">React</div>
                 <div class="skill-tag">Bootstrap</div>
-                <div class="skill-tag">Git & GitHub</div>
+                <div class="skill-tag">Git &amp; GitHub</div>
                 <div class="skill-tag">Responsive Design</div>
                 <div class="skill-tag">Web Performance</div>
                 <div class="skill-tag">Python</div>
@@ -1320,7 +1409,7 @@ footer {
     <div class="timeline">
         <div class="timeline-item">
             <div class="timeline-content">
-                <h3>Bachelor of Commerce & Computer Applications (B.Com CA)</h3>
+                <h3>Bachelor of Commerce &amp; Computer Applications (B.Com CA)</h3>
                 <span class="duration">2023 – 2026</span>
                 <p><strong>S.V.K.P Degree College</strong></p>
                 <p>Currently pursuing an integrated degree combining commerce principles with computer applications. Focus on financial accounting, business management, and software development with specialization in web technologies and database management.</p>
@@ -1405,10 +1494,10 @@ footer {
         </div>
         
         <div class="skill-category">
-            <h3><i class="fas fa-tools"></i> Tools & Others</h3>
+            <h3><i class="fas fa-tools"></i> Tools &amp; Others</h3>
             <div class="skill-bar">
                 <div class="skill-info">
-                    <span class="skill-name">Git & GitHub</span>
+                    <span class="skill-name">Git &amp; GitHub</span>
                     <span class="skill-percent">80%</span>
                 </div>
                 <div class="skill-progress">
@@ -1467,7 +1556,7 @@ footer {
         <!-- Financial Dashboard Project -->
         <div class="project-card">
             <div class="project-img">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Financial Dashboard">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Financial Dashboard">
             </div>
             <div class="project-content">
                 <h3>Financial Dashboard</h3>
@@ -1490,7 +1579,7 @@ footer {
         <!-- Portfolio Project -->
         <div class="project-card">
             <div class="project-img">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Portfolio Website">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Portfolio Website">
             </div>
             <div class="project-content">
                 <h3>Personal Portfolio Website</h3>
@@ -1511,7 +1600,7 @@ footer {
         <!-- To-Do App -->
         <div class="project-card">
             <div class="project-img">
-                <img src="https://images.unsplash.com/photo-1550645612-83f5d594b671?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="To-Do App">
+                <img src="https://images.unsplash.com/photo-1550645612-83f5d594b671?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="To-Do App">
             </div>
             <div class="project-content">
                 <h3>Interactive To-Do App</h3>
@@ -1532,7 +1621,7 @@ footer {
         <!-- Calculator -->
         <div class="project-card">
             <div class="project-img">
-                <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Calculator">
+                <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Calculator">
             </div>
             <div class="project-content">
                 <h3>Modern Calculator</h3>
@@ -1553,7 +1642,7 @@ footer {
         <!-- Weather App -->
         <div class="project-card">
             <div class="project-img">
-                <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Weather App">
+                <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Weather App">
             </div>
             <div class="project-content">
                 <h3>Weather Forecast App</h3>
@@ -1574,7 +1663,7 @@ footer {
         <!-- Quiz App -->
         <div class="project-card">
             <div class="project-img">
-                <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Quiz App">
+                <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Quiz App">
             </div>
             <div class="project-content">
                 <h3>Interactive Quiz App</h3>
@@ -1637,28 +1726,34 @@ footer {
         </div>
         
         <div class="contact-form">
+            <!-- Success/Error Messages -->
+            <div id="formMessage" class="form-message success" style="display: none;"><i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. I will get back to you soon.</div>
+            
             <form id="contactForm">
                 <div class="form-group">
-                    <label for="name">Full Name</label>
+                    <label for="name">Full Name *</label>
                     <input type="text" id="name" name="name" placeholder="Enter your name" required="">
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Email Address</label>
+                    <label for="email">Email Address *</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required="">
                 </div>
                 
                 <div class="form-group">
-                    <label for="subject">Subject</label>
+                    <label for="subject">Subject *</label>
                     <input type="text" id="subject" name="subject" placeholder="Enter subject" required="">
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Message</label>
+                    <label for="message">Message *</label>
                     <textarea id="message" name="message" rows="5" placeholder="Enter your message" required=""></textarea>
                 </div>
                 
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message <i class="fas fa-paper-plane"></i></button>
+                <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">
+                    <span id="submitText">Send Message <i class="fas fa-paper-plane"></i></span>
+                    <span id="submitSpinner" class="spinner" style="display: none;"></span>
+                </button>
             </form>
         </div>
     </div>
@@ -1811,22 +1906,73 @@ function animateSkillBars() {
 
 window.addEventListener('scroll', animateSkillBars);
 
-// Contact form submission
+// EmailJS Contact Form Submission
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+    const formMessage = document.getElementById('formMessage');
+    
+    // Show loading state
+    submitBtn.disabled = true;
+    submitText.innerHTML = 'Sending...';
+    submitSpinner.style.display = 'inline-block';
+    formMessage.style.display = 'none';
+    
     // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+    const templateParams = {
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+        to_email: 'jreddysatti@gmail.com',
+        reply_to: document.getElementById('email').value
+    };
     
-    // In a real application, you would send this data to a server
-    // For demo purposes, we'll just show an alert
-    alert(`Thank you ${name}! Your message has been sent. I'll get back to you at ${email} as soon as possible.`);
-    
-    // Reset the form
-    document.getElementById('contactForm').reset();
+    // Send email using EmailJS with YOUR Service ID and Template ID
+    emailjs.send('service_udk2nts', 'template_drgujlu', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Show success message
+            formMessage.className = 'form-message success';
+            formMessage.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. I will get back to you soon.';
+            formMessage.style.display = 'block';
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            
+            // Reset button state
+            submitBtn.disabled = false;
+            submitText.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+            submitSpinner.style.display = 'none';
+            
+            // Scroll to show success message
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Hide success message after 8 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 8000);
+        })
+        .catch(function(error) {
+            console.log('FAILED...', error);
+            
+            // Show error message
+            formMessage.className = 'form-message error';
+            formMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Oops! Something went wrong. Please try again or contact me directly at jreddysatti@gmail.com';
+            formMessage.style.display = 'block';
+            
+            // Reset button state
+            submitBtn.disabled = false;
+            submitText.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+            submitSpinner.style.display = 'none';
+            
+            // Scroll to show error message
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
 });
 
 // Smooth scrolling for anchor links
@@ -1851,5 +1997,43 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('load', animateSkillBars);
 </script>
 
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 
 </body></html>
